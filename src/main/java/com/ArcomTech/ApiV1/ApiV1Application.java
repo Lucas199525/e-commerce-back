@@ -1,13 +1,13 @@
-package com.arcom.api;
+package com.ArcomTech.ApiV1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiApplication {
+public class ApiV1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiApplication.class, args);
+		SpringApplication.run(ApiV1Application.class, args);
 	}
 
 }
