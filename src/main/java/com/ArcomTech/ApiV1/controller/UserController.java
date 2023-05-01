@@ -25,6 +25,8 @@ public class UserController {
             return  new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("user/name:/{name}")
+    public List<User> getByName(@PathVariable String name){ return  userRepository.findByName(name);}
 
     @GetMapping("user/")
     public List<User> list(){return userService.listAll();}
