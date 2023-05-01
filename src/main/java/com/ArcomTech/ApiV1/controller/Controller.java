@@ -13,8 +13,4 @@ public class Controller {
         return "Hello Arcom";
     }
 
-    @GetMapping("/date")
-    public String  date(){
-        return "12/02/1995";
-    }
 }

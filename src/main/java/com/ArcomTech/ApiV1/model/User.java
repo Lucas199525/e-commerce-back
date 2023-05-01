@@ -19,7 +19,7 @@ public class User {
 
 
     @Column(name = "id")
-    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue Integer id;
     @Column(name = "name")
     private String name;
     @Column(name = "password")
