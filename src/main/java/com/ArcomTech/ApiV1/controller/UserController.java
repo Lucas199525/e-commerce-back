@@ -2,6 +2,7 @@ package com.ArcomTech.ApiV1.controller;
 
 import com.ArcomTech.ApiV1.model.User;
 import com.ArcomTech.ApiV1.service.UserService;
+import com.ArcomTech.ApiV1.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class UserController {
         }
     }
     @GetMapping("user/name:/{name}")
-    public List<User> getByName(@PathVariable String name){ return  userRepository.findByName(name);}
+    public List<User> getByName(@PathVariable String name){ return userService.listAll() /*userRepository.findByName(name)*/;}
 
     @GetMapping("user/")
     public List<User> list(){return userService.listAll();}
