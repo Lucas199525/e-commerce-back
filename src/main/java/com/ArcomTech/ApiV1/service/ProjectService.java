@@ -5,6 +5,7 @@ import com.ArcomTech.ApiV1.model.Project;
 import com.ArcomTech.ApiV1.repository.ProjectRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -22,10 +22,10 @@ public class Project {
     @Column(name = "name")
     private String name;
     @Column(name = "date-debut")
-    private Date dateDebut;
+    private String dateDebut;
     @Column(name = "type")
     private String type;
-    @Column(name = "languages")
+    @Column(name = "language")
     private String languages;
 
     @Column(name = "framework")
