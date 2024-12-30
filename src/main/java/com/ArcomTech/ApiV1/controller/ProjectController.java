@@ -30,19 +30,4 @@ public class ProjectController {
     @GetMapping("projects/")
     public List<Project> list(){return projectService.listAll();}
 
-    @PostMapping("user/add")
-    public void add(@RequestBody Project newproject){projectService.save(newproject);}
-    @PutMapping("user/update/{id}")
-    public ResponseEntity<?> update(@RequestBody Project project,@PathVariable Integer id){
-        try {
-            Project existProject = projectService.get(id);
-            projectService.save(project);
-            return new ResponseEntity<>(HttpStatus.OK);
-        }catch(NoSuchElementException e){
-            return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-    @DeleteMapping("user/delete/{id}")
-    public void delete(@PathVariable Integer id){projectService.delete(id);}
-
 }

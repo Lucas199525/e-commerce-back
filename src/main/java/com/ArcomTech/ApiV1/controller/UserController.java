@@ -32,7 +32,7 @@ public class UserController {
     @GetMapping("user/")
     public List<User> list(){return userService.listAll();}
 
-    @PostMapping("user/add")
+   @PostMapping("user/add")
     public void add(@RequestBody User newuser){userService.save(newuser);}
     @PutMapping("user/update/{id}")
     public ResponseEntity<?> update(@RequestBody User user,@PathVariable Integer id){
