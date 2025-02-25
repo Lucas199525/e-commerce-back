@@ -1,5 +1,6 @@
 package com.ArcomTech.ApiV1.controller;
 import com.ArcomTech.ApiV1.model.UserInfo;
+import com.ArcomTech.ApiV1.security.AuthRequest;
 import com.ArcomTech.ApiV1.service.JwtService;
 import com.ArcomTech.ApiV1.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
