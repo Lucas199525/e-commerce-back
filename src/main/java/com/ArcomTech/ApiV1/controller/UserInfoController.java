@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-public class UserController {
+public class UserInfoController {
 
     @Autowired
     private UserInfoService service;
