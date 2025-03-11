@@ -34,6 +34,43 @@ public class UserInfoController {
         return service.addUser(userInfo);
     }
 
+    @PostMapping("/generateToken")
+    public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+        );
+        if (authentication.isAuthenticated()) {
+            return jwtService.generateToken(authRequest.getUsername());
+        } else {
+            throw new UsernameNotFoundException("Invalid user request!");
+        }
+    }
+
+    @PostMapping("/login")
+    public String authenticate(@RequestBody AuthRequest authRequest) {
+        System.out.println("Auth Details: " + authRequest);
+
+        UsernamePasswordAuthenticationToken token = new
+                UsernamePasswordAuthenticationToken(
+                authRequest.getUsername(),
+                authRequest.getPassword());
+
+        System.out.println("\nAuthentication Token Before Authentication: " + token);
+
+        /*Authentication authResult = authenticationManager.authenticate(token);
+
+        System.out.println("Authentication Token After Authentication: " + authResult);
+
+        System.out.println();
+        if(authResult.isAuthenticated())
+            System.out.println("User is Authenticated");
+
+        return new AuthRequest();*/
+        return jwtService.generateToken(authRequest.getUsername());
+    }
+
+
+
     @GetMapping("/user/userProfile")
     @PreAuthorize("hasAuthority('ROLE_USER')")
     public String userProfile() {
@@ -46,15 +83,4 @@ public class UserInfoController {
         return "Welcome to Admin Profile";
     }
 
-    @PostMapping("/generateToken")
-    public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
-        );
-        if (authentication.isAuthenticated()) {
-            return jwtService.generateToken(authRequest.getUsername());
-        } else {
-            throw new UsernameNotFoundException("Invalid user request!");
-        }
-    }
 }

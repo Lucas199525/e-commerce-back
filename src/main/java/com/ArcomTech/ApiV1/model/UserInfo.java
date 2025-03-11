@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "userInfo", schema = "public")
 public class UserInfo {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
     @Column(name = "name")
     private String name;
@@ -21,7 +21,7 @@ public class UserInfo {
     private String email;
     @Column(name = "password")
     private String password;
-    @Column(name = "role")
+    @Column(name = "roles")
     private String roles;
 
 }
