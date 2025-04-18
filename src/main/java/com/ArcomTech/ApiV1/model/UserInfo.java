@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "userInfo", schema = "public")
 public class UserInfo {
 
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
     @Column(name = "name")
     private String name;

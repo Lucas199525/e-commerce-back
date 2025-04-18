@@ -48,24 +48,13 @@ public class UserInfoController {
 
     @PostMapping("/login")
     public String authenticate(@RequestBody AuthRequest authRequest) {
-        System.out.println("Auth Details: " + authRequest);
 
         UsernamePasswordAuthenticationToken token = new
                 UsernamePasswordAuthenticationToken(
                 authRequest.getUsername(),
                 authRequest.getPassword());
 
-        System.out.println("\nAuthentication Token Before Authentication: " + token);
 
-        /*Authentication authResult = authenticationManager.authenticate(token);
-
-        System.out.println("Authentication Token After Authentication: " + authResult);
-
-        System.out.println();
-        if(authResult.isAuthenticated())
-            System.out.println("User is Authenticated");
-
-        return new AuthRequest();*/
         return jwtService.generateToken(authRequest.getUsername());
     }
 
