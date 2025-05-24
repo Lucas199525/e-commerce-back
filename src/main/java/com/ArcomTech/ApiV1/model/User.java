@@ -1,30 +1,25 @@
 package com.ArcomTech.ApiV1.model;
 
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.io.Serializable;
 
 
-
-
-@Setter
 @Getter
+@Setter
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "user", schema = "public")
-public class User {
+@Table(name = "user")
+public class User implements Serializable, EntityWithId<Integer>{
 
-
-    @Column(name = "id")
-    private @Id @GeneratedValue Long id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "password")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private Integer idContact;
+    private String mail;
     private String password;
-    @Column(name = "role")
-    private String role;
-
 }

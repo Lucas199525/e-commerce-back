@@ -1,4 +1,5 @@
-package com.ArcomTech.ApiV1.security;
+package com.ArcomTech.ApiV1.dto;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -6,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthRequest {
-
-    private String username;
+public class UserDto {
+    private Integer idContact;
+    private String mail;
     private String password;
-
 }

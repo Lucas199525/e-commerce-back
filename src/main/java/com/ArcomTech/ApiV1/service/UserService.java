@@ -1,17 +1,16 @@
 package com.ArcomTech.ApiV1.service;
 
 import com.ArcomTech.ApiV1.model.User;
-import org.springframework.stereotype.Component;
+import com.ArcomTech.ApiV1.repository.UserRepository;
+import com.ArcomTech.ApiV1.dto.UserCreationDto;
+import com.ArcomTech.ApiV1.dto.UserDto;
+import com.ArcomTech.ApiV1.mapper.UserMapper;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
+@Service
+public class UserService extends AbstractEntityService<User, Integer, UserRepository, UserCreationDto, UserDto, UserMapper> {
 
-@Component
-public interface UserService {
-    User saveUser(User user);
-
-    User getUserById(Long id);
-    List<User> fetchAllUser();
-    User updateUserById(Long id, User user);
-
-    String deleteUserById(Long id);
+    public UserService(UserRepository repository, UserMapper userMapper) {
+        super(repository, userMapper, "User");
+    }
 }
